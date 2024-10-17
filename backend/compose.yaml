@@ -20,7 +20,7 @@ services:
       - ia_network
     environment:
       FLASK_ENV: development
-      BACKEND_URL: http://backend:8080  # Certifique-se de que o serviço 'backend' está definido
+      BACKEND_URL: http://backend:8080  
 
 
 networks:
