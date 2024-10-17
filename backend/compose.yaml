@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
   db:
     image: postgres
@@ -10,3 +8,23 @@ services:
       POSTGRES_DB: diagnostico
     ports:
       - "5432:5432"
+
+  servicoIA:
+    build:
+      context: ./servicoIA
+    image: servico-ia  
+    container_name: servico-ia
+    ports:
+      - "5000:5000"
+    networks:
+      - ia_network
+    environment:
+      FLASK_ENV: development
+      BACKEND_URL: http://backend:8080  # Certifique-se de que o serviço 'backend' está definido
+
+
+networks:
+  backend_network:
+    driver: bridge
+  ia_network:
+    driver: bridge
