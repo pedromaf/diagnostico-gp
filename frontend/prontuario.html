@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Dashboards</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pacientes
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="#">Cadastrar Paciente</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Visualizar Pacientes</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Gerenciar Diagnósticos</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar"
+              aria-label="Buscar"
+            />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        
+    <div class="row m-0">
+        <div class="col-md-7 col-12">
+            <div class="row">
+                <div class="col-12 px-0 mb-4">
+                    <div class="box-right">
+                        <div class="d-flex mb-2">
+                            <p class="fw-bold">PRONTUÁRIO</p>
+                            <p class="ms-auto textmuted"><span class="fas fa-times"></span></p>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <p class="h7">#AL2545</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <p class="textmuted h8">Nome do Paciente:</p>
+                                <input class="form-control" type="text" placeholder="Nome Completo" />
+                            </div>
+                            <div class="col-6">
+                                <p class="textmuted h8">Data de Nascimento:</p>
+                                <input class="form-control" type="text" placeholder="dd/mm/aaaa" />
+                            </div>
+                            <div class="col-6">
+                                <p class="textmuted h8">Gênero:</p>
+                                <input class="form-control" type="text" placeholder="" />
+                            </div>
+                            <div class="col-6">
+                                <p class="textmuted h8">Endereço:</p>
+                                <input class="form-control" type="text" placeholder="" />
+                            </div>
+                            <div class="col-6">
+                                <p class="textmuted h8">Celular:</p>
+                                <input class="form-control" type="text" placeholder="" />
+                            </div>
+                            <div class="col-6">
+                                <p class="textmuted h8">Email:</p>
+                                <input class="form-control" type="text" placeholder="" />
+                            </div>
+                            <div class="col-6">
+                                <p class="textmuted h8">Data da consulta:</p>
+                                <input class="form-control" type="text" placeholder="" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <div class="col-md-5 col-12 ps-md-5 p-0" style="position: sticky; top: 0;">
+    <div class="box-left">
+        <div class="">
+            <div class="form">
+                <a href="../historico.html"  class="btn btn-primary d-block h8">PRÓXIMA ETAPA <span class="fas fa-stethoscope ms-2"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
+p {
+    margin: 0
+}
+
+body {
+    background-color: #edefef
+}
+
+.container {
+    padding: 35px;
+}
+
+.box-right {
+    padding: 30px 25px;
+    background-color: white;
+    border-radius: 15px
+}
+
+.box-left {
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 15px
+}
+
+.textmuted {
+    color: #7a7a7a
+}
+
+.bg-green {
+    background-color: #d4f8f2;
+    color: #06e67a;
+    padding: 3px 0;
+    display: inline;
+    border-radius: 25px;
+    font-size: 11px
+}
+
+.p-blue {
+    font-size: 14px;
+    color: #1976d2
+}
+
+.fas.fa-circle {
+    font-size: 12px
+}
+
+.p-org {
+    font-size: 14px;
+    color: #fbc02d
+}
+
+.h7 {
+    font-size: 15px
+}
+
+.h8 {
+    font-size: 12px
+}
+
+.h9 {
+    font-size: 10px
+}
+
+.bg-blue {
+    background-color: #dfe9fc9c;
+    border-radius: 5px
+}
+
+.form-control {
+    box-shadow: none !important
+}
+
+.card input::placeholder {
+    font-size: 14px
+}
+
+::placeholder {
+    font-size: 14px
+}
+
+input.card {
+    position: relative
+}
+
+.far.fa-credit-card {
+    position: absolute;
+    top: 10px;
+    padding: 0 15px
+}
+
+.fas,
+.far {
+    cursor: pointer
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.btn.btn-primary {
+    box-shadow: none;
+    height: 40px;
+    padding: 11px
+}
+
+.bg.btn.btn-primary {
+    background-color: transparent;
+    border: none;
+    color: #1976d2
+}
+
+.bg.btn.btn-primary:hover {
+    color: #539ee9
+}
+
+@media(max-width:320px) {
+    .h8 {
+        font-size: 11px
+    }
+
+    .h7 {
+        font-size: 13px
+    }
+
+    ::placeholder {
+        font-size: 10px
+    }
+}
+</style>
+
