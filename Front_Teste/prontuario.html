@@ -1,64 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diagnóstico</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous"
-  />
-  <link rel="stylesheet" href="prontuario.css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <!-- Navbar content -->
-    </div>
-  </nav>
-  <div class="container">
-    <div class="row m-0">
-      <div class="col-md-7 col-12">
-        <div class="row">
-          <div class="col-12 px-0 mb-4">
-            <div class="box-right">
-              <div class="d-flex mb-2">
-                <p class="fw-bold">PRONTUÁRIO</p>
-                <p class="ms-auto text-muted"><span class="fas fa-times"></span></p>
-              </div>
-              <div class="d-flex mb-4">
-                <p class="h7">#AL2545</p>
-              </div>
-              <div class="row">
-                <div class="col-12 mb-2">
-                  <label for="nome-paciente" class="text-muted h8">Nome do Paciente:</label>
-                  <input id="nome-paciente" class="form-control" type="text" placeholder="Nome Completo" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Diagnóstico</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="prontuario.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <!-- Navbar content -->
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col-md-7 col-12">
+          <div class="row">
+            <div class="col-12 px-0 mb-4">
+              <div class="box-right">
+                <div class="d-flex mb-2">
+                  <p class="fw-bold">PRONTUÁRIO</p>
+                  <p class="ms-auto text-muted">
+                    <span class="fas fa-times"></span>
+                  </p>
                 </div>
-                <div class="col-6">
-                  <label for="data-nascimento" class="text-muted h8">Data de Nascimento:</label>
-                  <input id="data-nascimento" class="form-control" type="text" placeholder="dd/mm/aaaa" />
+                <div class="d-flex mb-4">
+                  <p class="h7">#AL2545</p>
                 </div>
-                <div class="col-6">
-                  <label for="genero" class="text-muted h8">Gênero:</label>
-                  <input id="genero" class="form-control" type="text" />
-                </div>
-                <div class="col-6">
-                  <label for="endereco" class="text-muted h8">Endereço:</label>
-                  <input id="endereco" class="form-control" type="text" />
-                </div>
-                <div class="col-6">
-                  <label for="celular" class="text-muted h8">Celular:</label>
-                  <input id="celular" class="form-control" type="text" />
-                </div>
-                <div class="col-6">
-                  <label for="email" class="text-muted h8">Email:</label>
-                  <input id="email" class="form-control" type="email" />
-                </div>
-                <div class="col-6">
-                  <label for="data-consulta" class="text-muted h8">Data da consulta:</label>
-                  <input id="data-consulta" class="form-control" type="text" />
+                <div class="row">
+                  <div class="col-12 mb-2">
+                    <label for="nome-paciente" class="text-muted h8"
+                      >Nome do Paciente:</label
+                    >
+                    <input
+                      id="nome-paciente"
+                      class="form-control"
+                      type="text"
+                      placeholder="Nome Completo"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <label for="data-nascimento" class="text-muted h8"
+                      >Data de Nascimento:</label
+                    >
+                    <input
+                      id="data-nascimento"
+                      class="form-control"
+                      type="text"
+                      placeholder="dd/mm/aaaa"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <label for="genero" class="text-muted h8">Gênero:</label>
+                    <input id="genero" class="form-control" type="text" />
+                  </div>
+                  <div class="col-6">
+                    <label for="endereco" class="text-muted h8"
+                      >Endereço:</label
+                    >
+                    <input id="endereco" class="form-control" type="text" />
+                  </div>
+                  <div class="col-6">
+                    <label for="celular" class="text-muted h8">Celular:</label>
+                    <input id="celular" class="form-control" type="text" />
+                  </div>
+                  <div class="col-6">
+                    <label for="email" class="text-muted h8">Email:</label>
+                    <input id="email" class="form-control" type="email" />
+                  </div>
+                  <div class="col-6">
+                    <label for="data-consulta" class="text-muted h8"
+                      >Data da consulta:</label
+                    >
+                    <input
+                      id="data-consulta"
+                      class="form-control"
+                      type="text"
+                    />
+                  </div>
                 </div>
               </div>
               <div>
@@ -68,78 +93,94 @@
                     <tr>
                       <td>
                         <div>
-                          <input type="checkbox" id="leite">
+                          <input type="checkbox" id="leite" />
                           <label class="text-muted h8" for="leite">Leite</label>
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="ovo">
+                          <input type="checkbox" id="ovo" />
                           <label class="text-muted h8" for="ovo">Ovo</label>
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="fmar">
-                          <label class="text-muted h8" for="fmar">Frutos do Mar</label>
+                          <input type="checkbox" id="fmar" />
+                          <label class="text-muted h8" for="fmar"
+                            >Frutos do Mar</label
+                          >
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="AN">
-                          <label class="text-muted h8" for="AN">Amendoim/Nozes</label>
+                          <input type="checkbox" id="AN" />
+                          <label class="text-muted h8" for="AN"
+                            >Amendoim/Nozes</label
+                          >
                         </div>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div>
-                          <input type="checkbox" id="AAS">
-                          <label class="text-muted h8" for="AAS">Aspirina/AAS</label>
+                          <input type="checkbox" id="AAS" />
+                          <label class="text-muted h8" for="AAS"
+                            >Aspirina/AAS</label
+                          >
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="Pni">
-                          <label class="text-muted h8" for="Pni">Penicilina</label>
+                          <input type="checkbox" id="Pni" />
+                          <label class="text-muted h8" for="Pni"
+                            >Penicilina</label
+                          >
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="AINEs">
+                          <input type="checkbox" id="AINEs" />
                           <label class="text-muted h8" for="AINEs">AINEs</label>
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="acaros">
-                          <label class="text-muted h8" for="acaros">Ácaros</label>
+                          <input type="checkbox" id="acaros" />
+                          <label class="text-muted h8" for="acaros"
+                            >Ácaros</label
+                          >
                         </div>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div>
-                          <input type="checkbox" id="poeira">
-                          <label class="text-muted h8" for="poeira">Poeira</label>
+                          <input type="checkbox" id="poeira" />
+                          <label class="text-muted h8" for="poeira"
+                            >Poeira</label
+                          >
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="polen">
+                          <input type="checkbox" id="polen" />
                           <label class="text-muted h8" for="polen">Pólen</label>
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="abelha">
-                          <label class="text-muted h8" for="abelha">Abelhas/Vespas/formigas</label>
+                          <input type="checkbox" id="abelha" />
+                          <label class="text-muted h8" for="abelha"
+                            >Abelhas/Vespas/formigas</label
+                          >
                         </div>
                       </td>
                       <td>
                         <div>
-                          <input type="checkbox" id="CG">
-                          <label class="text-muted h8" for="CG">Gato/Cachorro</label>
+                          <input type="checkbox" id="CG" />
+                          <label class="text-muted h8" for="CG"
+                            >Gato/Cachorro</label
+                          >
                         </div>
                       </td>
                     </tr>
@@ -149,24 +190,26 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-5 col-12 ps-md-5 p-0" style="position: sticky; top: 0;">
-        <div class="box-left">
-          <div class="form">
-            <a href="./historico.html" class="btn btn-primary d-block h8">
-              PRÓXIMA ETAPA <span class="fas fa-stethoscope ms-2"></span>
-            </a>
+        <div
+          class="col-md-5 col-12 ps-md-5 p-0"
+          style="position: sticky; top: 0"
+        >
+          <div class="box-left">
+            <div class="form">
+              <a href="./historico.html" class="btn btn-primary d-block h8">
+                PRÓXIMA ETAPA <span class="fas fa-stethoscope ms-2"></span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN6jIeHz"
-    crossorigin="anonymous"
-  ></script>
-  <script src="prontuario.js"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="prontuario.js"></script>
+  </body>
 </html>

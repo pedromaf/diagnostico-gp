@@ -70,6 +70,10 @@ body {
     font-size: 10px
 }
 
+.aligncenter {
+    align-content: center
+}
+
 .bg-blue {
     background-color: #dfe9fc9c;
     border-radius: 5px
@@ -121,6 +125,8 @@ input.card {
 .bg.btn.btn-primary:hover {
     color: #539ee9
 }
+
+
 
 @media(max-width:320px) {
     .h8 {

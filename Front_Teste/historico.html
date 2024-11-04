@@ -10,7 +10,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="prontuario.css">
+    <link rel="stylesheet" href="historico.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,7 +29,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./index.html">Início</a>
+              <a class="nav-link active" aria-current="page" href="./index.html"
+                >Início</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Dashboards</a>
@@ -47,7 +49,9 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="./prontuario.html">Cadastrar Paciente</a>
+                  <a class="dropdown-item" href="./prontuario.html"
+                    >Cadastrar Paciente</a
+                  >
                 </li>
                 <li>
                   <a class="dropdown-item" href="#">Visualizar Pacientes</a>
@@ -78,12 +82,14 @@
               <div class="box-right">
                 <div class="d-flex mb-2">
                   <p class="fw-bold">HISTÓRICO PREGRESSO</p>
-                  <p class="ms-auto text-muted"><span class="fas fa-times"></span></p>
+                  <p class="ms-auto text-muted">
+                    <span class="fas fa-times"></span>
+                  </p>
                 </div>
                 <div class="d-flex mb-4">
                   <p class="h7">#AL2545</p>
                 </div>
-                <div class="row mb-3">
+                <div class="row">
                   <p class="text-muted h7 mb-2">CONDIÇÕES GERAIS</p>
                   <div class="col-6">
                     <table class="table table-bordered">
@@ -91,14 +97,18 @@
                         <tr>
                           <td>
                             <div>
-                              <input type="checkbox" id="fumante">
-                              <label class="text-muted h8" for="fumante">Fumante</label>
+                              <input type="checkbox" id="fumante" />
+                              <label class="text-muted h8" for="fumante"
+                                >Fumante</label
+                              >
                             </div>
                           </td>
                           <td>
                             <div>
-                              <input type="checkbox" id="alcool">
-                              <label class="text-muted h8" for="alcool">Consome álcool</label>
+                              <input type="checkbox" id="alcool" />
+                              <label class="text-muted h8" for="alcool"
+                                >Consome álcool</label
+                              >
                             </div>
                           </td>
                         </tr>
@@ -112,110 +122,151 @@
                     <div class="col-12">
                       <table class="table table-bordered">
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="diabetes">
-                                        <label class="textmuted h8" for="diabetes">Diabetes</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="hipertensao">
-                                        <label class="textmuted h8" for="hipertensao">Hipertensão</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="asma">
-                                        <label class="textmuted h8" for="asma">Asma</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="hipotireoidismo">
-                                        <label class="textmuted h8" for="hipotireoidismo">Hipotireoidismo</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="artrite">
-                                        <label class="textmuted h8" for="artrite">Artrite</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="cancer">
-                                        <label class="textmuted h8" for="cancer">Câncer</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="depressao">
-                                        <label class="textmuted h8" for="depressao">Depressão</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="doenca_renal">
-                                        <label class="textmuted h8" for="doenca_renal">Doença Renal</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="hepatite">
-                                        <label class="textmuted h8" for="hepatite">Hepatite</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="tuberculose">
-                                        <label class="textmuted h8" for="tuberculose">Tuberculose</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="anemia">
-                                        <label class="textmuted h8" for="anemia">Anemia</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="insuficiencia_cardiaca">
-                                        <label class="textmuted h8" for="insuficiencia_cardiaca">Insuficiência Cardíaca</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="doenca_pulmonar">
-                                        <label class="textmuted h8" for="doenca_pulmonar">Doença Pulmonar</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="alzheimer">
-                                        <label class="textmuted h8" for="alzheimer">Alzheimer</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="avc">
-                                        <label class="textmuted h8" for="avc">AVC</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="epilepsia">
-                                        <label class="textmuted h8" for="epilepsia">Epilepsia</label>
-                                    </div>
-                                </td>
-                            </tr>
+                          <tr>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="diabetes" />
+                                <label class="textmuted h8" for="diabetes"
+                                  >Diabetes</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="hipertensao" />
+                                <label class="textmuted h8" for="hipertensao"
+                                  >Hipertensão</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="asma" />
+                                <label class="textmuted h8" for="asma"
+                                  >Asma</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="hipotireoidismo" />
+                                <label
+                                  class="textmuted h8"
+                                  for="hipotireoidismo"
+                                  >Hipotireoidismo</label
+                                >
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="artrite" />
+                                <label class="textmuted h8" for="artrite"
+                                  >Artrite</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="cancer" />
+                                <label class="textmuted h8" for="cancer"
+                                  >Câncer</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="depressao" />
+                                <label class="textmuted h8" for="depressao"
+                                  >Depressão</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="doenca_renal" />
+                                <label class="textmuted h8" for="doenca_renal"
+                                  >Doença Renal</label
+                                >
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="hepatite" />
+                                <label class="textmuted h8" for="hepatite"
+                                  >Hepatite</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="tuberculose" />
+                                <label class="textmuted h8" for="tuberculose"
+                                  >Tuberculose</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="anemia" />
+                                <label class="textmuted h8" for="anemia"
+                                  >Anemia</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input
+                                  type="checkbox"
+                                  id="insuficiencia_cardiaca"
+                                />
+                                <label
+                                  class="textmuted h8"
+                                  for="insuficiencia_cardiaca"
+                                  >Insuficiência Cardíaca</label
+                                >
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="doenca_pulmonar" />
+                                <label
+                                  class="textmuted h8"
+                                  for="doenca_pulmonar"
+                                  >Doença Pulmonar</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="alzheimer" />
+                                <label class="textmuted h8" for="alzheimer"
+                                  >Alzheimer</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="avc" />
+                                <label class="textmuted h8" for="avc"
+                                  >AVC</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="epilepsia" />
+                                <label class="textmuted h8" for="epilepsia"
+                                  >Epilepsia</label
+                                >
+                              </div>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -227,110 +278,151 @@
                     <div class="col-12">
                       <table class="table table-bordered">
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="diabetes_f">
-                                        <label class="textmuted h8" for="diabetes_f">Diabetes</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="hipertensao_f">
-                                        <label class="textmuted h8" for="hipertensao_f">Hipertensão</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="asma_f">
-                                        <label class="textmuted h8" for="asma_f">Asma</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="hipotireoidismo_f">
-                                        <label class="textmuted h8" for="hipotireoidismo_f">Hipotireoidismo</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="artrite_f">
-                                        <label class="textmuted h8" for="artrite_f">Artrite</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="cancer_f">
-                                        <label class="textmuted h8" for="cancer_f">Câncer</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="depressao_f">
-                                        <label class="textmuted h8" for="depressao_f">Depressão</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="doenca_renal_f">
-                                        <label class="textmuted h8" for="doenca_renal_f">Doença Renal</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="hepatite_f">
-                                        <label class="textmuted h8" for="hepatite_f">Hepatite</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="tuberculose_f">
-                                        <label class="textmuted h8" for="tuberculose_f">Tuberculose</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="anemia_f">
-                                        <label class="textmuted h8" for="anemia_f">Anemia</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="insuficiencia_cardiaca_f">
-                                        <label class="textmuted h8" for="insuficiencia_cardiaca_f">Insuficiência Cardíaca</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="doenca_pulmonar_f">
-                                        <label class="textmuted h8" for="doenca_pulmonar_f">Doença Pulmonar</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="alzheimer_f">
-                                        <label class="textmuted h8" for="alzheimer_f">Alzheimer</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="avc_f">
-                                        <label class="textmuted h8" for="avc_f">AVC</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <input type="checkbox" id="epilepsia_f">
-                                        <label class="textmuted h8" for="epilepsia_f">Epilepsia</label>
-                                    </div>
-                                </td>
-                            </tr>
+                          <tr>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="diabetes_f" />
+                                <label class="textmuted h8" for="diabetes_f"
+                                  >Diabetes</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="hipertensao_f" />
+                                <label class="textmuted h8" for="hipertensao_f"
+                                  >Hipertensão</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="asma_f" />
+                                <label class="textmuted h8" for="asma_f"
+                                  >Asma</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="hipotireoidismo_f" />
+                                <label
+                                  class="textmuted h8"
+                                  for="hipotireoidismo_f"
+                                  >Hipotireoidismo</label
+                                >
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="artrite_f" />
+                                <label class="textmuted h8" for="artrite_f"
+                                  >Artrite</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="cancer_f" />
+                                <label class="textmuted h8" for="cancer_f"
+                                  >Câncer</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="depressao_f" />
+                                <label class="textmuted h8" for="depressao_f"
+                                  >Depressão</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="doenca_renal_f" />
+                                <label class="textmuted h8" for="doenca_renal_f"
+                                  >Doença Renal</label
+                                >
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="hepatite_f" />
+                                <label class="textmuted h8" for="hepatite_f"
+                                  >Hepatite</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="tuberculose_f" />
+                                <label class="textmuted h8" for="tuberculose_f"
+                                  >Tuberculose</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="anemia_f" />
+                                <label class="textmuted h8" for="anemia_f"
+                                  >Anemia</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input
+                                  type="checkbox"
+                                  id="insuficiencia_cardiaca_f"
+                                />
+                                <label
+                                  class="textmuted h8"
+                                  for="insuficiencia_cardiaca_f"
+                                  >Insuficiência Cardíaca</label
+                                >
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="doenca_pulmonar_f" />
+                                <label
+                                  class="textmuted h8"
+                                  for="doenca_pulmonar_f"
+                                  >Doença Pulmonar</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="alzheimer_f" />
+                                <label class="textmuted h8" for="alzheimer_f"
+                                  >Alzheimer</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="avc_f" />
+                                <label class="textmuted h8" for="avc_f"
+                                  >AVC</label
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="checkbox" id="epilepsia_f" />
+                                <label class="textmuted h8" for="epilepsia_f"
+                                  >Epilepsia</label
+                                >
+                              </div>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -340,7 +432,10 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-12 ps-md-5 p-0" style="position: sticky; top: 0;">
+        <div
+          class="col-md-5 col-12 ps-md-5 p-0"
+          style="position: sticky; top: 0"
+        >
           <div class="box-left">
             <div class="form">
               <a href="./laboratorio.html" class="btn btn-primary d-block h8">

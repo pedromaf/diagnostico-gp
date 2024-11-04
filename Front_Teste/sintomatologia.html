@@ -17,6 +17,8 @@
       integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMHrhAcb8vhSH/JTr5M+5m85E6EdWhQ7bVJqD7o"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="sintomatologia.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,7 +37,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./index.html">Início</a>
+              <a class="nav-link active" aria-current="page" href="./index.html"
+                >Início</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Dashboards</a>
@@ -53,7 +57,9 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="./prontuario.html">Cadastrar Paciente</a>
+                  <a class="dropdown-item" href="./prontuario.html"
+                    >Cadastrar Paciente</a
+                  >
                 </li>
                 <li>
                   <a class="dropdown-item" href="#">Visualizar Pacientes</a>
@@ -84,7 +90,9 @@
               <div class="box-right">
                 <div class="d-flex mb-2">
                   <p class="fw-bold">SINTOMATOLOGIA</p>
-                  <p class="ms-auto text-muted"><span class="fas fa-times"></span></p>
+                  <p class="ms-auto text-muted">
+                    <span class="fas fa-times"></span>
+                  </p>
                 </div>
                 <div class="d-flex mb-4">
                   <p class="h7">#AL2545</p>
@@ -94,14 +102,13 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th> </th>
+                          <th></th>
                           <th class="text-muted h8">Sintoma</th>
                           <th class="text-muted h8">Duração</th>
                           <th class="text-muted h8">Gravidade</th>
                         </tr>
                       </thead>
-                      <tbody id="sintomasTableBody">
-                      </tbody>
+                      <tbody id="sintomasTableBody"></tbody>
                     </table>
                   </div>
                 </div>
@@ -109,51 +116,62 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-12 ps-md-5 p-0" style="position: sticky; top: 0;">
+        <div
+          class="col-md-5 col-12 ps-md-5 p-0"
+          style="position: sticky; top: 0"
+        >
           <div class="box-left">
-              <p class="fw-bold h7">Diagnóstico</p>
-              
-              <p class="fw-bold h8 no-margin">Paciente:</p>
-              <div id="displayNomePaciente"></div>
+            <p class="fw-bold h7">Diagnóstico</p>
 
-              <p class="fw-bold h8">Endereço:</p>
-              <div id="displayEndereco"></div>
+            <p class="fw-bold h8 no-margin">Paciente:</p>
+            <div id="displayNomePaciente"></div>
 
-              <p class="fw-bold h8">Data de nascimento:</p>
-              <div id="displayDataNascimento"></div>
-              
-              <div class="h8">
-                  <div class="d-flex h7 mb-2">
-                      <p class="">Total de Antecedentes Clínicos</p>
-                      <div id="Nclinicos"></div>
-                  </div>
-                  <div class="d-flex h7 mb-2">
-                      <p class="">Total de Antecedentes Familiares</p>
-                      <div id="Nfamiliares"></div>
-                  </div>
-                  <div class="d-flex h7 mb-2">
-                      <p class="">Total de Sintomas</p>
-                      <div id="Nsintomas"></div>
-                  </div>
-                  <div class="h8 mb-5">
-                      <p class="text-muted">Para gerar o diagnóstico, revise os dados e clique no botão abaixo.</p>
-                  </div>
+            <p class="fw-bold h8">Endereço:</p>
+            <div id="displayEndereco"></div>
+
+            <p class="fw-bold h8 mb-2">Data de nascimento:</p>
+            <div id="displayDataNascimento"></div>
+
+            <div class="h8">
+              <div class="d-flex h7 mb-2">
+                <p class="">Total de Antecedentes Clínicos</p>
+                <div id="Nclinicos"></div>
               </div>
-              <div class="form">
-                  <a id="btnGerarDiagnostico" href="#" class="btn btn-primary d-block h8">GERAR DIAGNÓSTICO <span class="fas fa-stethoscope ms-2"></span></a>
+              <div class="d-flex h7 mb-2">
+                <p class="">Total de Antecedentes Familiares</p>
+                <div id="Nfamiliares"></div>
               </div>
-              
-              <!-- Div para exibir os dados do paciente -->
-              <div id="dadosPaciente" class="mt-3"></div>
+              <div class="d-flex h7 mb-2">
+                <p class="">Total de Sintomas</p>
+                <div id="Nsintomas"></div>
+              </div>
+              <div class="h8 mb-5">
+                <p class="text-muted">
+                  Para gerar o diagnóstico, revise os dados e clique no botão
+                  abaixo.
+                </p>
+              </div>
+            </div>
+            <div class="form">
+              <a
+                id="btnGerarDiagnostico"
+                href="#"
+                class="btn btn-primary d-block h8"
+                >GERAR DIAGNÓSTICO <span class="fas fa-stethoscope ms-2"></span
+              ></a>
+            </div>
+
+            <!-- Div para exibir os dados do paciente -->
+            <div id="dadosPaciente" class="mt-3"></div>
           </div>
         </div>
       </div>
     </div>
 
     <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
     ></script>
     <script src="sintomatologia.js"></script>
   </body>
