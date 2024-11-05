@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Diagnostico</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="sintomatologia.css" media="screen" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../index/index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Dashboards</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pacientes
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="../prontuario/prontuario.html">Cadastrar Paciente</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Visualizar Pacientes</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Gerenciar Diagnósticos</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar"
+              aria-label="Buscar"
+            />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        
+    <div class="row m-0">
+        <div class="col-md-7 col-12">
+            <div class="row">
+                
+                <div class="col-12 px-0 mb-4">
+    <div class="box-right">
+        <div class="d-flex mb-2">
+            <p class="fw-bold">SINTOMATOLOGIA</p>
+            <p class="ms-auto textmuted"><span class="fas fa-times"></span></p>
+        </div>
+        <div class="d-flex mb-4">
+            <p class="h7">#AL2545</p>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th class="text-muted h8">Sintoma</th>
+                            <th class="text-muted h8">Duração</th>
+                            <th class="text-muted h8">Gravidade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sintomasTableBody">
+                      <!-- Row 1: Febre -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="febre" />
+                        </td>
+                        <td>
+                          <label for="febre" class="text-muted h8">Febre</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 2: Tosse -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="tosse" />
+                        </td>
+                        <td>
+                          <label for="tosse" class="text-muted h8">Tosse</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 3: Fadiga -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="fadiga" />
+                        </td>
+                        <td>
+                          <label for="fadiga" class="text-muted h8">Fadiga</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 4: Falta de Ar -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="falta_de_ar" />
+                        </td>
+                        <td>
+                          <label for="falta_de_ar" class="text-muted h8">Falta de Ar</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 5: Dor no Peito -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="dor_no_peito" />
+                        </td>
+                        <td>
+                          <label for="dor_no_peito" class="text-muted h8">Dor no Peito</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 6: Dor de Cabeça -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="dor_de_cabeca" />
+                        </td>
+                        <td>
+                          <label for="dor_de_cabeca" class="text-muted h8">Dor de Cabeça</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 7: Palpitações -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="palpitacoes" />
+                        </td>
+                        <td>
+                          <label for="palpitacoes" class="text-muted h8">Palpitações</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 8: Náusea -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="nausea" />
+                        </td>
+                        <td>
+                          <label for="nausea" class="text-muted h8">Náusea</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 9: Vômito -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="vomito" />
+                        </td>
+                        <td>
+                          <label for="vomito" class="text-muted h8">Vômito</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 10: Tontura -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="tontura" />
+                        </td>
+                        <td>
+                          <label for="tontura" class="text-muted h8">Tontura</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 11: Calafrios -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="calafrios" />
+                        </td>
+                        <td>
+                          <label for="calafrios" class="text-muted h8">Calafrios</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 12: Perda de Olfato -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="perda_de_olfato" />
+                        </td>
+                        <td>
+                          <label for="perda_de_olfato" class="text-muted h8">Perda de Olfato</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 13: Perda de Paladar -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="perda_de_paladar" />
+                        </td>
+                        <td>
+                          <label for="perda_de_paladar" class="text-muted h8">Perda de Paladar</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 14: Diarreia -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="diarreia" />
+                        </td>
+                        <td>
+                          <label for="diarreia" class="text-muted h8">Diarreia</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 15: Cansaço Extremo -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="cansaco_extremo" />
+                        </td>
+                        <td>
+                          <label for="cansaco_extremo" class="text-muted h8">Cansaço Extremo</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    
+                      <!-- Row 16: Desmaio -->
+                      <tr>
+                        <td>
+                          <input type="checkbox" id="desmaio" />
+                        </td>
+                        <td>
+                          <label for="desmaio" class="text-muted h8">Desmaio</label>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="1">1-3 dias</option>
+                            <option value="2">4-7 dias</option>
+                            <option value="3">Entre 1 e 2 semanas</option>
+                            <option value="4">Mais de 2 semanas</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select text-muted h8">
+                            <option value=""></option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="grave">Grave</option>
+                          </select>
+                        </td>
+                      </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+        <div class="col-md-5 col-12 ps-md-5 p-0" style="position: sticky; top: 0;">
+    <div class="box-left">
+        <p class="textmuted h8">Diagnóstico</p>
+        <p class="fw-bold h7">Paciente: </p>
+        <p class="textmuted h8">Endereço: </p>
+        <p class="textmuted h8 mb-2">Data de nascimento:</p>
+        <div class="h8">
+            <div class="d-flex h7 mb-2">
+                <p class="">Total de Antecedentes Clínicos</p>
+                <p class="ms-auto">3</p>
+            </div>
+            <div class="d-flex h7 mb-2">
+                <p class="">Total de Antecedentes Familiares</p>
+                <p class="ms-auto">3</p>
+            </div>
+            <div class="d-flex h7 mb-2">
+                <p class="">Total de Sintomas</p>
+                <p class="ms-auto">3</p>
+            </div>
+            <div class="h8 mb-5">
+                <p class="textmuted">Para gerar o diagnóstico, revise os dados e clique no botão abaixo.</p>
+            </div>
+        </div>
+        <div class="">
+            <div class="form">
+                <a html="#" class="btn btn-primary d-block h8">GERAR DIAGNÓSTICO <span class="fas fa-stethoscope ms-2"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
