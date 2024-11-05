@@ -1,5 +1,6 @@
 package com.gp.diagnostico.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,5 +34,6 @@ public class FamilyHistory {
     private boolean epilepsy;
 
     @OneToOne(mappedBy = "familyHistory")
+    @JsonIgnore
     private PreviousHistory previousHistory;
 }

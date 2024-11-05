@@ -1,5 +1,6 @@
 package com.gp.diagnostico.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,7 @@ public class GeneralConditions {
     private boolean alcohol;
 
     @OneToOne(mappedBy = "generalConditions")
+    @JsonIgnore
     private PreviousHistory previousHistory;
 }
 

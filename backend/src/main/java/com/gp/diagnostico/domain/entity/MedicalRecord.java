@@ -40,6 +40,9 @@ public class MedicalRecord {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "previous_history_id")
-    @JsonManagedReference
     private PreviousHistory previousHistory;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "laboratory_analyses_id")
+    private LaboratoryAnalyses laboratoryAnalyses;
 }

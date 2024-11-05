@@ -1,6 +1,6 @@
 package com.gp.diagnostico.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +17,7 @@ public class PreviousHistory {
     private Long id;
 
     @OneToOne(mappedBy = "previousHistory")
-    @JsonBackReference
+    @JsonIgnore
     private MedicalRecord medicalRecord;
 
     @OneToOne(cascade = CascadeType.ALL)

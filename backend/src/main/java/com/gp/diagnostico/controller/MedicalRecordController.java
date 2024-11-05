@@ -1,5 +1,6 @@
 package com.gp.diagnostico.controller;
 
+import com.gp.diagnostico.domain.dto.LaboratoryAnalysesDTO;
 import com.gp.diagnostico.domain.dto.MedicalRecordDTO;
 import com.gp.diagnostico.domain.dto.PreviousHistoryDTO;
 import com.gp.diagnostico.domain.entity.MedicalRecord;
@@ -35,11 +36,15 @@ public class MedicalRecordController {
     }
 
     @PutMapping("/{id}/previousHistory")
-    public ResponseEntity<MedicalRecord> updatePreviousHistory(
-            @PathVariable Long id,
-            @RequestBody PreviousHistoryDTO previousHistoryDto) {
-
+    public ResponseEntity<MedicalRecord> updatePreviousHistory(@PathVariable Long id, @RequestBody PreviousHistoryDTO previousHistoryDto) {
         MedicalRecord updatedMedicalRecord = medicalRecordService.updatePreviousHistory(id, previousHistoryDto);
+        return ResponseEntity.ok(updatedMedicalRecord);
+    }
+
+    @PutMapping("/{id}/laboratoryAnalyses")
+    public ResponseEntity<MedicalRecord> updateLaboratoryAnalyses(@PathVariable Long id, @RequestBody LaboratoryAnalysesDTO laboratoryAnalysesDto) {
+        MedicalRecord updatedMedicalRecord = medicalRecordService.updateLaboratoryAnalyses(id, laboratoryAnalysesDto);
+
         return ResponseEntity.ok(updatedMedicalRecord);
     }
 

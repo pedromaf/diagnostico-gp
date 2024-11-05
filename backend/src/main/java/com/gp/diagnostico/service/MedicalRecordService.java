@@ -1,11 +1,14 @@
 package com.gp.diagnostico.service;
 
+import com.gp.diagnostico.domain.dto.LaboratoryAnalysesDTO;
 import com.gp.diagnostico.domain.dto.MedicalRecordDTO;
 import com.gp.diagnostico.domain.dto.PreviousHistoryDTO;
+import com.gp.diagnostico.domain.entity.LaboratoryAnalyses;
 import com.gp.diagnostico.domain.entity.MedicalRecord;
 import com.gp.diagnostico.domain.entity.PreviousHistory;
 import com.gp.diagnostico.util.mapper.MedicalRecordMapper;
 import com.gp.diagnostico.util.mapper.PreviousHistoryMapper;
+import com.gp.diagnostico.util.mapper.LaboratoryAnalysesMapper;
 import com.gp.diagnostico.repository.MedicalRecordRepository;
 import com.gp.diagnostico.service.exception.MedicalRecordNotFoundException;
 import org.springframework.stereotype.Service;
@@ -18,13 +21,16 @@ public class MedicalRecordService {
     private final MedicalRecordRepository medicalRecordRepository;
     private final MedicalRecordMapper medicalRecordMapper;
     private final PreviousHistoryMapper previousHistoryMapper;
+    private final LaboratoryAnalysesMapper laboratoryAnalysesMapper;
 
     public MedicalRecordService(MedicalRecordRepository medicalRecordRepository,
                                 MedicalRecordMapper medicalRecordMapper,
-                                PreviousHistoryMapper previousHistoryMapper) {
+                                PreviousHistoryMapper previousHistoryMapper,
+                                LaboratoryAnalysesMapper laboratoryAnalysesMapper) {
         this.medicalRecordRepository = medicalRecordRepository;
         this.medicalRecordMapper = medicalRecordMapper;
         this.previousHistoryMapper = previousHistoryMapper;
+        this.laboratoryAnalysesMapper = laboratoryAnalysesMapper;
     }
 
     public Iterable<MedicalRecord> findAll() {
@@ -56,6 +62,17 @@ public class MedicalRecordService {
         previousHistory.setMedicalRecord(medicalRecord);
 
         medicalRecord.setPreviousHistory(previousHistory);
+
+        return medicalRecordRepository.save(medicalRecord);
+    }
+
+    public MedicalRecord updateLaboratoryAnalyses(Long id, LaboratoryAnalysesDTO laboratoryAnalysesDTO) {
+        MedicalRecord medicalRecord = findById(id);
+
+        LaboratoryAnalyses laboratoryAnalyses = laboratoryAnalysesMapper.toEntity(laboratoryAnalysesDTO);
+        laboratoryAnalyses.setMedicalRecord(medicalRecord);
+
+        medicalRecord.setLaboratoryAnalyses(laboratoryAnalyses);
 
         return medicalRecordRepository.save(medicalRecord);
     }

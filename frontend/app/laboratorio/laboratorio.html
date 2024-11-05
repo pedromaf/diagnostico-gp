@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./index.html"
+              <a class="nav-link active" aria-current="page" href="../index/index.html"
                 >Início</a
               >
             </li>
@@ -48,7 +48,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="./prontuario.html"
+                  <a class="dropdown-item" href="../prontuario/prontuario.html"
                     >Cadastrar Paciente</a
                   >
                 </li>
@@ -82,6 +82,9 @@
                 <div class="d-flex mb-2">
                   <p class="fw-bold">ANÁLISES LABORATORIAIS</p>
                 </div>
+
+                <div id="errorSpan" style="color: red;"></div>
+
                 <div class="row mb-3">
                   <div class="col-12">
                     <table class="table table-bordered">
@@ -98,10 +101,10 @@
                           <td class="text-muted h7 aligncenter">ALB</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="ALB"
-                              placeholder="Valor ALB"
+                              id="albumin"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -112,10 +115,10 @@
                           <td class="text-muted h7 aligncenter">ALP</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="ALP"
-                              placeholder="Valor ALP"
+                              id="alkalinePhosphatase"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -126,10 +129,10 @@
                           <td class="text-muted h7 aligncenter">ALT</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="ALT"
-                              placeholder="Valor ALT"
+                              id="alanineTransaminase"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -140,10 +143,10 @@
                           <td class="text-muted h7 aligncenter">AST</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="AST"
-                              placeholder="Valor AST"
+                              id="aspartateTransaminase"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -152,10 +155,10 @@
                           <td class="text-muted h7 aligncenter">BIL</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="BIL"
-                              placeholder="Valor BIL"
+                              id="bilirubin"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -166,10 +169,10 @@
                           <td class="text-muted h7 aligncenter">CHE</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="CHE"
-                              placeholder="Valor CHE"
+                              id="cholinesterase"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -178,10 +181,10 @@
                           <td class="text-muted h7 aligncenter">CHOL</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="CHOL"
-                              placeholder="Valor CHOL"
+                              id="cholesterol"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -190,10 +193,10 @@
                           <td class="text-muted h7 aligncenter">CREA</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="CREA"
-                              placeholder="Valor CREA"
+                              id="creatinine"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -204,10 +207,10 @@
                           <td class="text-muted h7 aligncenter">GGT</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="GGT"
-                              placeholder="Valor GGT"
+                              id="gammaGlutamylTransferase"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -218,10 +221,10 @@
                           <td class="text-muted h7 aligncenter">PROT</td>
                           <td>
                             <input
-                              type="number"
+                              type="text"
                               class="form-control form-control-lg"
-                              id="PROT"
-                              placeholder="Valor PROT"
+                              id="totalProtein"
+                              placeholder="0.00"
                             />
                           </td>
                         </tr>
@@ -239,14 +242,13 @@
         >
           <div class="box-left">
             <div class="form">
-              <a
-                href="./sintomatologia.html"
-                class="btn btn-primary d-block h8"
-              >
-                PRÓXIMA ETAPA <span class="fas fa-stethoscope ms-2"></span>
+              <a id="confirmButton" class="btn btn-primary d-block h8">
+                PRÓXIMA ETAPA 
+                <span class="fas fa-stethoscope ms-2"></span>
               </a>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -254,6 +256,6 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
-    <script src="laboratorio.js"></script>
+    <script type="module" src="../../dist/services/laboratorio-service.js"></script>
   </body>
 </html>

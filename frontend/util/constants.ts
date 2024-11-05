@@ -3,10 +3,12 @@ export class AppConstants {
     public static readonly HISTORICO_PATH = "app/historico/historico.html"
     public static readonly PRONTUARIO_PATH = "app/prontuario/prontuario.html"
     public static readonly LABORATORIO_PATH = "app/laboratorio/laboratorio.html"
+    public static readonly SINTOMATOLOGIA_PATH = "app/sintomatologia/sintomatologia.html"
 
     public static readonly API_BASE_URL = 'http://localhost:55999/api';
     public static readonly MEDICAL_RECORDS_ENDPOINT = 'medicalRecord/';
     public static readonly PREVIOUS_HISTORY_ENDPOINT = 'medicalRecord/{medicalRecordId}/previousHistory';
+    public static readonly LABOATORY_ANALYSES_ENDPOINT = 'medicalRecord/{medicalRecordId}/laboratoryAnalyses';
 
     public static readonly ERROR_NETWORK = 'Ocorreu um erro ao tentar se comunicar com o servidor.';
     public static readonly ERROR_NOT_FOUND = 'Recurso não encontrado.';

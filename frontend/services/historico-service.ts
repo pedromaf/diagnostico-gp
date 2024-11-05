@@ -27,7 +27,7 @@ async function confirmPreviousHistoryCreation() {
         if (response.error) {
             alert(response.error);
         } else {
-           window.location.href = AppConstants.BASE_URL + "/" + AppConstants.LABORATORIO_PATH + "?medicalRecordId=" + medicalRecordId;
+           window.location.href = AppConstants.BASE_URL + AppConstants.LABORATORIO_PATH + "?medicalRecordId=" + medicalRecordId;
         }
     } catch (error) {
         console.error("Error:", error);

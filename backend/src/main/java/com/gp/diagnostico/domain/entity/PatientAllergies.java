@@ -1,5 +1,6 @@
 package com.gp.diagnostico.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,5 +30,6 @@ public class PatientAllergies {
     private boolean catsDogs;
 
     @OneToOne(mappedBy = "patientAllergies")
+    @JsonIgnore
     private PreviousHistory previousHistory;
 }
