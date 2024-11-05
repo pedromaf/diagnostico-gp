@@ -1,28 +1,13 @@
 import { AppConstants } from '../util/constants.js';
 import { apiService } from './api-service.js';
 import { formatter } from '../util/formatter.js';
-
-interface MedicalRecord {
-    id?: number;
-    name: string;
-    birthdate: Date;
-    gender?: string;
-    address: string;
-    phoneNumber: string;
-    email?: string;
-    consultationDate: Date;
-}
-
-interface FormFields {
-    fieldName: string;
-    field: HTMLElement | null;
-    required: boolean; 
-}
+import { MedicalRecord } from '../interfaces/medical-record.js';
+import { FormField } from '../interfaces/form-field.js';
 
 const errorSpan = document.getElementById("errorSpan");
 var errors = new Array<string>();
 
-const formFields: FormFields[] = [
+const formFields: FormField[] = [
     { fieldName: 'name', field: document.getElementById('name'), required: true },
     { fieldName: 'birthdate', field: document.getElementById('birthdate'), required: true },
     { fieldName: 'gender', field: document.getElementById('gender'), required: false },
@@ -134,19 +119,14 @@ async function confirmMedicalRecordCreation() {
         var medicalRecord: MedicalRecord = buildMedicalRecordObject();
 
         try {
-            const response = await apiService.post<MedicalRecord>(
-                AppConstants.MEDICAL_RECORDS_ENDPOINT,
-                medicalRecord
-            );
+            const response = await apiService.post<MedicalRecord>(AppConstants.MEDICAL_RECORDS_ENDPOINT, medicalRecord);
 
             if (response.error) {
                 alert(response.error);
-            } else {
-                if (response.data?.id) {
-                    console.log(response.data);
-                    //window.location.href = AppConstants.BASE_URL + "/" + AppConstants.HISTORY_PATH;
-                }
+            } else if (response.data?.id) {
+                window.location.href = AppConstants.BASE_URL + AppConstants.HISTORICO_PATH + "?medicalRecordId=" + response.data.id;
             }
+
         } catch (error) {
             console.error("Error:", error);
         }

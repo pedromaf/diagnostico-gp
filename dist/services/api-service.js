@@ -20,7 +20,10 @@ class ApiService {
                 return { data };
             }
             catch (error) {
-                return { data: null, error: error instanceof Error ? error.message : AppConstants.ERROR_NETWORK };
+                return {
+                    data: null,
+                    error: error instanceof Error ? error.message : AppConstants.ERROR_NETWORK,
+                };
             }
         });
     }
@@ -40,7 +43,55 @@ class ApiService {
                 return { data };
             }
             catch (error) {
-                return { data: null, error: error instanceof Error ? error.message : AppConstants.ERROR_NETWORK };
+                return {
+                    data: null,
+                    error: error instanceof Error ? error.message : AppConstants.ERROR_NETWORK,
+                };
+            }
+        });
+    }
+    put(endpoint, body) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = yield fetch(`${API_BASE_URL}/${endpoint}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(body),
+                });
+                if (!response.ok)
+                    throw new Error(AppConstants.ERROR_NETWORK);
+                const data = yield response.json();
+                return { data };
+            }
+            catch (error) {
+                return {
+                    data: null,
+                    error: error instanceof Error ? error.message : AppConstants.ERROR_NETWORK,
+                };
+            }
+        });
+    }
+    delete(endpoint) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = yield fetch(`${API_BASE_URL}/${endpoint}`, {
+                    method: 'DELETE',
+                });
+                if (!response.ok)
+                    throw new Error(AppConstants.ERROR_NETWORK);
+                let data = null;
+                if (response.status !== 204) {
+                    data = yield response.json();
+                }
+                return { data };
+            }
+            catch (error) {
+                return {
+                    data: null,
+                    error: error instanceof Error ? error.message : AppConstants.ERROR_NETWORK,
+                };
             }
         });
     }

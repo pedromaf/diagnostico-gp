@@ -108,11 +108,9 @@ function confirmMedicalRecordCreation() {
                 if (response.error) {
                     alert(response.error);
                 }
-                else {
-                    if ((_a = response.data) === null || _a === void 0 ? void 0 : _a.id) {
-                        console.log(response.data);
-                        //window.location.href = AppConstants.BASE_URL + "/" + AppConstants.HISTORY_PATH;
-                    }
+                else if ((_a = response.data) === null || _a === void 0 ? void 0 : _a.id) {
+                    console.log(AppConstants.BASE_URL + "/" + AppConstants.HISTORICO_PATH + "?medicalRecordId=" + response.data.id);
+                    window.location.href = AppConstants.BASE_URL + "/" + AppConstants.HISTORICO_PATH + "?medicalRecordId=" + response.data.id;
                 }
             }
             catch (error) {
