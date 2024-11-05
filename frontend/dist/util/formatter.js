@@ -49,5 +49,15 @@ class Formatter {
         }
         input.value = formattedValue;
     }
+    validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    restrictNumericInput(event) {
+        const key = event.key;
+        if (!/\d/.test(key)) {
+            event.preventDefault();
+        }
+    }
 }
 export const formatter = new Formatter();

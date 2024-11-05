@@ -38,22 +38,15 @@ confirmButton?.addEventListener('click', confirmMedicalRecordCreation);
 
 const birthdateInput = document.getElementById("birthdate") as HTMLInputElement;
 birthdateInput.addEventListener("input", formatter.formatDateInput);
-birthdateInput.addEventListener("keypress", restrictNumericInput);
+birthdateInput.addEventListener("keypress", formatter.restrictNumericInput);
 
 const consultationDateInput = document.getElementById("consultationDate") as HTMLInputElement;
 consultationDateInput.addEventListener("input", formatter.formatDateInput);
-consultationDateInput.addEventListener("keypress", restrictNumericInput);
+consultationDateInput.addEventListener("keypress", formatter.restrictNumericInput);
 
 const phoneNumberInput = document.getElementById('phoneNumber') as HTMLInputElement;
 phoneNumberInput.addEventListener('input', formatter.formatPhoneNumberInput);
-phoneNumberInput.addEventListener('keypress', restrictNumericInput);
-
-function restrictNumericInput(event: KeyboardEvent) {
-    const key = event.key;
-    if (!/\d/.test(key)) {
-        event.preventDefault();
-    }
-}
+phoneNumberInput.addEventListener('keypress', formatter.restrictNumericInput);
 
 function clearErrors() {
     errorSpan.innerHTML = "";
@@ -100,12 +93,14 @@ function validateFields(): boolean {
         const inputElement = formField.field as HTMLInputElement;
         var value = inputElement.value.trim();
 
+        console.log(value);
+
         if (formField.required && value == "") {
             displayError(AppConstants.ERROR_INVALID_FORM);
             isValid = false;
         }
 
-        if (formField.fieldName == "phoneNumber" && value != "" && formField.field.textContent.length != 15) {
+        if (formField.fieldName == "phoneNumber" && value != "" && value.length != 15) {
             displayError(AppConstants.ERROR_INVALID_PHONE_NUMBER);
             isValid = false;
         }
@@ -120,6 +115,13 @@ function validateFields(): boolean {
         if (formField.fieldName === "birthdate" && value != "") {
             if (!formatter.isValidDate(value)) {
                 displayError(AppConstants.ERROR_INVALID_DATE_FORMAT.replace("{fieldName}", getFieldNameTranslation(formField.fieldName)));
+                isValid = false;
+            }
+        }
+
+        if (formField.fieldName === "email" && value != "") {
+            if (!formatter.validateEmail(value)) {
+                displayError(AppConstants.ERROR_INVALID_EMAIL_FORMAT);
                 isValid = false;
             }
         }
