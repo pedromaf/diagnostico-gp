@@ -3,6 +3,7 @@ package com.gp.diagnostico.controller;
 import com.gp.diagnostico.domain.dto.LaboratoryAnalysesDTO;
 import com.gp.diagnostico.domain.dto.MedicalRecordDTO;
 import com.gp.diagnostico.domain.dto.PreviousHistoryDTO;
+import com.gp.diagnostico.domain.dto.SimplifiedMedicalRecordDTO;
 import com.gp.diagnostico.domain.entity.MedicalRecord;
 import com.gp.diagnostico.service.MedicalRecordService;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,11 @@ public class MedicalRecordController {
     @GetMapping("/{id}")
     public ResponseEntity<MedicalRecord> findById(@PathVariable Long id) {
         return ResponseEntity.ok(medicalRecordService.findById(id));
+    }
+
+    @GetMapping("/{id}/simplified")
+    public ResponseEntity<SimplifiedMedicalRecordDTO> findByIdSimplified(@PathVariable Long id) {
+        return ResponseEntity.ok(medicalRecordService.findByIdSimplified(id));
     }
 
     @PostMapping("/")

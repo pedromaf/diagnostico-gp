@@ -52,6 +52,7 @@ class ApiService {
     }
     put(endpoint, body) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(body);
             try {
                 const response = yield fetch(`${API_BASE_URL}/${endpoint}`, {
                     method: 'PUT',

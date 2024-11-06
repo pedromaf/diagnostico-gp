@@ -3,6 +3,7 @@ package com.gp.diagnostico.service;
 import com.gp.diagnostico.domain.dto.LaboratoryAnalysesDTO;
 import com.gp.diagnostico.domain.dto.MedicalRecordDTO;
 import com.gp.diagnostico.domain.dto.PreviousHistoryDTO;
+import com.gp.diagnostico.domain.dto.SimplifiedMedicalRecordDTO;
 import com.gp.diagnostico.domain.entity.LaboratoryAnalyses;
 import com.gp.diagnostico.domain.entity.MedicalRecord;
 import com.gp.diagnostico.domain.entity.PreviousHistory;
@@ -80,5 +81,21 @@ public class MedicalRecordService {
     public void deleteMedicalRecord(Long id) {
         MedicalRecord medicalRecord = findById(id);
         medicalRecordRepository.delete(medicalRecord);
+    }
+
+    public SimplifiedMedicalRecordDTO findByIdSimplified(Long id) {
+        MedicalRecord medicalRecord = findById(id);
+        SimplifiedMedicalRecordDTO dto = new SimplifiedMedicalRecordDTO();
+
+        dto.setId(medicalRecord.getId());
+        dto.setName(medicalRecord.getName());
+        dto.setBirthdate(medicalRecord.getBirthdate());
+        dto.setGender(medicalRecord.getGender());
+        dto.setAddress(medicalRecord.getAddress());
+        dto.setEmail(medicalRecord.getEmail());
+        dto.setPhoneNumber(medicalRecord.getPhoneNumber());
+        dto.setConsultationDate(medicalRecord.getConsultationDate());
+
+        return dto;
     }
 }
