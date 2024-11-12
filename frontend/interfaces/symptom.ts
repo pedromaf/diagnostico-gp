@@ -1,6 +1,6 @@
 export interface Symptom {
     id?: number;
     name: string;
-    duration?: number;
+    duration?: string;
     severity?: string;
 }

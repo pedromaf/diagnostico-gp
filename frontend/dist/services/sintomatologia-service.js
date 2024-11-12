@@ -122,7 +122,7 @@ function getSymptomFields() {
             if (mapping) {
                 const symptom = {
                     name: mapping,
-                    duration: durationSelect.value ? parseInt(durationSelect.value, 10) : undefined,
+                    duration: durationSelect.value || undefined,
                     severity: severitySelect.value || undefined,
                 };
                 symptoms.push(symptom);
@@ -147,7 +147,7 @@ function generateDiagnosis(event) {
                     alert(response.error);
                 }
                 else {
-                    //window.location.href = `${AppConstants.BASE_URL}${AppConstants.DIAGNOSTICO_PATH}?medicalRecordId=${medicalRecordId}`;
+                    window.location.href = `${AppConstants.BASE_URL}${AppConstants.DIAGNOSTICO_PATH}?medicalRecordId=${medicalRecordId}`;
                 }
             }
             catch (error) {
