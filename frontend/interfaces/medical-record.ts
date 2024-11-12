@@ -1,5 +1,6 @@
 import { LaboratoryAnalyses } from './laboratory-analyses.js';
 import { PreviousHistory } from './previous-history.js';
+import { Symptomatology } from './symptomatology.js';
 
 export interface MedicalRecord {
   id?: number;
@@ -12,5 +13,6 @@ export interface MedicalRecord {
   consultationDate: Date;
 
   previousHistory?: PreviousHistory;
-  laboratoryAnalyses?: LaboratoryAnalyses; 
+  laboratoryAnalyses?: LaboratoryAnalyses;
+  symptomatology?: Symptomatology;
 }

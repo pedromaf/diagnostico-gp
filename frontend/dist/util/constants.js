@@ -12,6 +12,7 @@ AppConstants.PREVIOUS_HISTORY_ENDPOINT = 'medicalRecord/{medicalRecordId}/previo
 AppConstants.LABOATORY_ANALYSES_ENDPOINT = 'medicalRecord/{medicalRecordId}/laboratoryAnalyses';
 AppConstants.SYMPTOMATOLOGY_ENDPOINT = 'medicalRecord/{medicalRecordId}/symptomatology';
 AppConstants.PATIENT_DATA_ENDPOINT = 'medicalRecord/{medicalRecordId}/simplified';
+AppConstants.GET_DIAGNOSIS_PATH = 'medicalRecord/{medicalRecordId}/diagnosis';
 AppConstants.ERROR_NETWORK = 'Ocorreu um erro ao tentar se comunicar com o servidor.';
 AppConstants.ERROR_NOT_FOUND = 'Recurso não encontrado.';
 AppConstants.ERROR_INVALID_FORM = 'É necessário preencher todos os campos obrigatórios \'*\'.';

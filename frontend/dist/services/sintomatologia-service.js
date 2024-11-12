@@ -142,11 +142,12 @@ function generateDiagnosis(event) {
             try {
                 const endpoint = AppConstants.SYMPTOMATOLOGY_ENDPOINT.replace("{medicalRecordId}", medicalRecordId);
                 const response = yield apiService.put(endpoint, symptomatology);
+                console.log(response);
                 if (response.error) {
                     alert(response.error);
                 }
                 else {
-                    window.location.href = `${AppConstants.BASE_URL}${AppConstants.DIAGNOSTICO_PATH}?medicalRecordId=${medicalRecordId}`;
+                    //window.location.href = `${AppConstants.BASE_URL}${AppConstants.DIAGNOSTICO_PATH}?medicalRecordId=${medicalRecordId}`;
                 }
             }
             catch (error) {
