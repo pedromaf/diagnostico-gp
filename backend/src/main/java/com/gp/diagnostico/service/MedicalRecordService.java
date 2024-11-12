@@ -12,6 +12,9 @@ import com.gp.diagnostico.repository.MedicalRecordRepository;
 import com.gp.diagnostico.service.exception.MedicalRecordNotFoundException;
 import com.gp.diagnostico.util.mapper.SymptomatologyMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+
 
 import java.util.Optional;
 
@@ -23,16 +26,20 @@ public class MedicalRecordService {
     private final PreviousHistoryMapper previousHistoryMapper;
     private final LaboratoryAnalysesMapper laboratoryAnalysesMapper;
     private final SymptomatologyMapper symptomatologyMapper;
+    private final WebClient webClient;
 
     public MedicalRecordService(MedicalRecordRepository medicalRecordRepository,
                                 MedicalRecordMapper medicalRecordMapper,
                                 PreviousHistoryMapper previousHistoryMapper,
-                                LaboratoryAnalysesMapper laboratoryAnalysesMapper, SymptomatologyMapper symptomatologyMapper) {
+                                LaboratoryAnalysesMapper laboratoryAnalysesMapper,
+                                SymptomatologyMapper symptomatologyMapper,
+                                WebClient webClient) {
         this.medicalRecordRepository = medicalRecordRepository;
         this.medicalRecordMapper = medicalRecordMapper;
         this.previousHistoryMapper = previousHistoryMapper;
         this.laboratoryAnalysesMapper = laboratoryAnalysesMapper;
         this.symptomatologyMapper = symptomatologyMapper;
+        this.webClient = webClient;
     }
 
     public Iterable<MedicalRecord> findAll() {
@@ -109,5 +116,23 @@ public class MedicalRecordService {
         medicalRecord.setSymptomatology(symptomatology);
 
         return medicalRecordRepository.save(medicalRecord);
+    }
+
+    public DiagnosisDTO sendMedicalDataToIA(Long medicalRecordId ) {
+        MedicalRecord medicalRecord = findById(medicalRecordId);
+        DiagnosisDTO diagnosisDTO = new DiagnosisDTO();
+
+        String externalApiUrl = "https://localhost:5000/api/ia_service";
+
+        Mono<String> response = webClient.post()
+                .uri(externalApiUrl)
+                .header("Content-Type", "application/json")
+                .bodyValue(medicalRecord)
+                .retrieve()
+                .bodyToMono(String.class);
+
+        String responseBody = response.block();
+
+        return diagnosisDTO;
     }
 }

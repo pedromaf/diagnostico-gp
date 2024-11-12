@@ -12,6 +12,7 @@ export class AppConstants {
     public static readonly LABOATORY_ANALYSES_ENDPOINT = 'medicalRecord/{medicalRecordId}/laboratoryAnalyses';
     public static readonly SYMPTOMATOLOGY_ENDPOINT = 'medicalRecord/{medicalRecordId}/symptomatology';
     public static readonly PATIENT_DATA_ENDPOINT = 'medicalRecord/{medicalRecordId}/simplified';
+    public static readonly GET_DIAGNOSIS_PATH = 'medicalRecord/{medicalRecordId}/diagnosis';
 
     public static readonly ERROR_NETWORK = 'Ocorreu um erro ao tentar se comunicar com o servidor.';
     public static readonly ERROR_NOT_FOUND = 'Recurso não encontrado.';
