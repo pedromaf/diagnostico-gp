@@ -107,8 +107,6 @@ async function confirmLaboratoryAnalyses() {
         try {
             const response = await apiService.put<MedicalRecord>(AppConstants.LABOATORY_ANALYSES_ENDPOINT.replace("{medicalRecordId}", medicalRecordId), laboratoryAnalyses);
 
-            console.log(response.data);
-
             if (response.error) {
                 alert(response.error);
             } else {

@@ -49,8 +49,6 @@ class ApiService {
     }
 
     async put<T>(endpoint: string, body: any): Promise<ApiResponse<T>> {
-        console.log(body);
-
         try {
             const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
                 method: 'PUT',

@@ -27,8 +27,6 @@ async function getPatientData() {
         } else {
             patientData = response.data;
 
-            console.log(patientData);
-            
             setupPatientData();
             generateDiagnosis();
         }

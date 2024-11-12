@@ -88,7 +88,6 @@ function confirmLaboratoryAnalyses() {
             var laboratoryAnalyses = buildLaboratoryAnalysesObject();
             try {
                 const response = yield apiService.put(AppConstants.LABOATORY_ANALYSES_ENDPOINT.replace("{medicalRecordId}", medicalRecordId), laboratoryAnalyses);
-                console.log(response.data);
                 if (response.error) {
                     alert(response.error);
                 }
