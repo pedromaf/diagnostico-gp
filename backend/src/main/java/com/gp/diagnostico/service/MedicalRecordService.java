@@ -1,5 +1,7 @@
 package com.gp.diagnostico.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gp.diagnostico.domain.dto.*;
 import com.gp.diagnostico.domain.entity.LaboratoryAnalyses;
 import com.gp.diagnostico.domain.entity.MedicalRecord;
@@ -14,7 +16,11 @@ import com.gp.diagnostico.util.mapper.SymptomatologyMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.Optional;
 
@@ -118,20 +124,59 @@ public class MedicalRecordService {
         return medicalRecordRepository.save(medicalRecord);
     }
 
-    public DiagnosisDTO sendMedicalDataToIA(Long medicalRecordId ) {
+    public DiagnosisDTO sendMedicalDataToIA(Long medicalRecordId) throws JsonProcessingException {
         MedicalRecord medicalRecord = findById(medicalRecordId);
-        DiagnosisDTO diagnosisDTO = new DiagnosisDTO();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneOffset.UTC);
+        String birthdateIso = formatter.format(Instant.ofEpochMilli(medicalRecord.getBirthdate().getTime()));
+        String consultationDateIso = formatter.format(Instant.ofEpochMilli(medicalRecord.getConsultationDate().getTime()));
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectNode minimalRequest = objectMapper.createObjectNode();
 
-        String externalApiUrl = "https://localhost:5000/api/ia_service";
+        minimalRequest.put("id", medicalRecord.getId());
+        minimalRequest.put("name", medicalRecord.getName());
+        minimalRequest.put("birthdate", birthdateIso);
+        minimalRequest.put("gender", medicalRecord.getGender());
+        minimalRequest.put("address", medicalRecord.getAddress());
+        minimalRequest.put("phoneNumber", medicalRecord.getPhoneNumber());
+        minimalRequest.put("email", medicalRecord.getEmail());
+        minimalRequest.put("consultationDate", consultationDateIso);
+        minimalRequest.set("laboratoryAnalyses", objectMapper.valueToTree(medicalRecord.getLaboratoryAnalyses()));
+
+        String jsonBody = minimalRequest.toString();
 
         Mono<String> response = webClient.post()
-                .uri(externalApiUrl)
+                .uri("http://localhost:5000/api/ia_service")
                 .header("Content-Type", "application/json")
-                .bodyValue(medicalRecord)
+                .bodyValue(jsonBody)
                 .retrieve()
                 .bodyToMono(String.class);
 
         String responseBody = response.block();
+
+        JsonNode responseJson = objectMapper.readTree(responseBody);
+        String predictedCategory = responseJson.path("predicted_category").asText();
+        String categoryNumber = predictedCategory.split("=")[0].trim();
+        DiagnosisDTO diagnosisDTO = new DiagnosisDTO();
+
+        diagnosisDTO.setHealthy(false);
+        diagnosisDTO.setHepaticFibrosis(false);
+        diagnosisDTO.setHepatitisC(false);
+        diagnosisDTO.setHepaticCirrhosis(false);
+
+        switch (categoryNumber) {
+            case "0":
+                diagnosisDTO.setHealthy(true);
+                break;
+            case "1":
+                diagnosisDTO.setHepatitisC(true);
+                break;
+            case "2":
+                diagnosisDTO.setHepaticFibrosis(true);
+                break;
+            case "3":
+                diagnosisDTO.setHepaticCirrhosis(true);
+                break;
+        }
 
         return diagnosisDTO;
     }

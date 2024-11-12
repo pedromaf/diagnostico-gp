@@ -6,7 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DiagnosisDTO {
-    private String diagnosis;
+    private boolean healthy;
+    private boolean hepatitisC;
+    private boolean hepaticFibrosis;
+    private boolean hepaticCirrhosis;
 }
-
-//0 saudável | 1 hepatite C | 2 fibrose hepática | 3 Cirrose hepática

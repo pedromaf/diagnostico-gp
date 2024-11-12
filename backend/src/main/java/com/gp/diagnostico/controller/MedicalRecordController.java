@@ -28,7 +28,7 @@ public class MedicalRecordController {
     }
 
     @GetMapping("/{id}/diagnosis")
-    public ResponseEntity<DiagnosisDTO> getDiagnosis(@PathVariable Long id) {
+    public ResponseEntity<DiagnosisDTO> getDiagnosis(@PathVariable Long id) throws Exception {
         return ResponseEntity.ok(medicalRecordService.sendMedicalDataToIA(id));
     }
 

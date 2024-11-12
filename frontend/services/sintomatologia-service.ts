@@ -165,7 +165,7 @@ async function generateDiagnosis(event: Event) {
             if (response.error) {
                 alert(response.error);
             } else {
-                //window.location.href = `${AppConstants.BASE_URL}${AppConstants.DIAGNOSTICO_PATH}?medicalRecordId=${medicalRecordId}`;
+                window.location.href = `${AppConstants.BASE_URL}${AppConstants.DIAGNOSTICO_PATH}?medicalRecordId=${medicalRecordId}`;
             }
         } catch (error) {
             console.error("Error:", error);

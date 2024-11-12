@@ -66,5 +66,8 @@ function generateDiagnosis() {
     });
 }
 function setDiagnosisResult(data) {
-    console.log(data);
+    document.getElementById('healthy').checked = data.healthy;
+    document.getElementById('hepatitisC').checked = data.hepatitisC;
+    document.getElementById('hepaticFibrosis').checked = data.hepaticFibrosis;
+    document.getElementById('hepaticCirrhosis').checked = data.hepaticCirrhosis;
 }

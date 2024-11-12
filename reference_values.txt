@@ -1,0 +1,59 @@
+Healthy Individual:
+
+albumin:                    4.5,    // g/dL (normal)
+alkalinePhosphatase:        80,     // U/L  (normal)
+alanineTransaminase:        25,     // U/L  (normal)
+aspartateTransaminase:      20,     // U/L  (normal)
+bilirubin:                  0.8,    // mg/dL (normal)
+cholinesterase:             9000,   // U/L  (normal)
+cholesterol:                190,    // mg/dL (normal)
+creatinine:                 1.0,    // mg/dL (normal)
+gammaGlutamylTransferase:   30,     // U/L  (normal)
+totalProtein:               7.2     // g/dL (normal)
+
+----------------------------------------------------------------
+
+Hepatitis C:
+
+albumin:                    3.8,    // g/dL (slightly low)
+alkalinePhosphatase:        100,    // U/L  (slightly elevated)
+alanineTransaminase:        150,    // U/L  (elevated)
+aspartateTransaminase:      130,    // U/L  (elevated)
+bilirubin:                  1.5,    // mg/dL (slightly elevated)
+cholinesterase:             7500,   // U/L  (slightly low)
+cholesterol:                170,    // mg/dL (normal)
+creatinine:                 1.0,    // mg/dL (normal)
+gammaGlutamylTransferase:   50,     // U/L  (slightly elevated)
+totalProtein:               6.8     // g/dL (slightly low)
+
+----------------------------------------------------------------
+
+Hepatic Fibrosis:
+
+albumin:                    3.2,    // g/dL (low)
+alkalinePhosphatase:        150,    // U/L  (elevated)
+alanineTransaminase:        80,     // U/L  (elevated)
+aspartateTransaminase:      90,     // U/L  (elevated)
+bilirubin:                  2.2,    // mg/dL (elevated)
+cholinesterase:             6000,   // U/L  (low)
+cholesterol:                160,    // mg/dL (low-normal)
+creatinine:                 1.1,    // mg/dL (normal)
+gammaGlutamylTransferase:   70,     // U/L  (elevated)
+totalProtein:               6.2     // g/dL (low)
+
+----------------------------------------------------------------
+
+Hepatic Cirrhosis:
+
+albumin:                    2.5,    // g/dL (low)
+alkalinePhosphatase:        220,    // U/L  (elevated)
+alanineTransaminase:        45,     // U/L  (slightly elevated)
+aspartateTransaminase:      80,     // U/L  (elevated)
+bilirubin:                  3.2,    // mg/dL (elevated)
+cholinesterase:             4000,   // U/L  (low)
+cholesterol:                140,    // mg/dL (low)
+creatinine:                 1.2,    // mg/dL (normal)
+gammaGlutamylTransferase:   110,    // U/L  (elevated)
+totalProtein:               5.8     // g/dL (low)
+
+----------------------------------------------------------------

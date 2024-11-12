@@ -52,16 +52,21 @@ async function generateDiagnosis() {
         const endpoint = AppConstants.GET_DIAGNOSIS_PATH.replace("{medicalRecordId}", medicalRecordId);
         const response = await apiService.get<any>(endpoint);
 
+        
         if (response.error) {
             alert(response.error);
         } else {
             setDiagnosisResult(response.data);
         }
+        
     } catch (error) {
         console.error("Error:", error);
     }
 }
 
 function setDiagnosisResult(data: any) {
-    console.log(data);
+    (document.getElementById('healthy') as HTMLInputElement).checked = data.healthy;
+    (document.getElementById('hepatitisC') as HTMLInputElement).checked = data.hepatitisC;
+    (document.getElementById('hepaticFibrosis') as HTMLInputElement).checked = data.hepaticFibrosis;
+    (document.getElementById('hepaticCirrhosis') as HTMLInputElement).checked = data.hepaticCirrhosis;
 }
