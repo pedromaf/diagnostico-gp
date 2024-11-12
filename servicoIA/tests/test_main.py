@@ -1,5 +1,6 @@
 import pytest
-from app.main import app
+from app import app  # Certifique-se de que a importação está correta com base na estrutura do seu projeto
+from datetime import datetime, timedelta
 
 @pytest.fixture
 def client():
@@ -13,22 +14,33 @@ def test_hello_world(client):
     response = client.get('/')
     assert response.data == b'Hello, World!'
 
-def test_patient_service_success(client):
-    """Teste para verificar se a previsão da categoria funciona corretamente"""
-    # Envia um JSON contendo informações do paciente para o endpoint
+def test_ia_service_success(client):
+    """Teste para verificar se a previsão da categoria funciona corretamente com dados válidos"""
+    # Dados do paciente com todos os campos necessários
     patient_data = {
-        "Age": 32,
-        "Sex": "m",
-        "ALB": 38.5,
-        "ALP": 52.5,
-        "ALT": 7.7,
-        "AST": 22.1,
-        "BIL": 7.5,
-        "CHE": 6.93,
-        "CHOL": 3.23,
-        "CREA": 106,
-        "GGT": 12.1,
-        "PROT": 69
+       "id": 402,
+       "name": "menine",
+       "birthdate": "1990-01-01T00:00:00.000+00:00",
+       "gender": "m",
+       "address": "Rua Exemplo, 123",
+       "phoneNumber": "123456789",
+       "email": "exemplo@teste.com",
+       "consultationDate": datetime.utcnow().isoformat() + "Z",
+       "previousHistory": {},  # Pode ser deixado vazio se não for usado
+       "laboratoryAnalyses": {
+          "id": 11,
+          "albumin": 38.5,
+          "alkalinePhosphatase": 52.5,
+          "alanineTransaminase": 7.7,
+          "aspartateTransaminase": 22.1,
+          "bilirubin": 7.5,
+          "cholinesterase": 6.93,
+          "cholesterol": 3.23,
+          "creatinine": 106,
+          "gammaGlutamylTransferase": 12.1,
+          "totalProtein": 69
+       },
+       "symptomatology": {}
     }
     
     # Faz o POST com os dados do paciente
@@ -42,56 +54,68 @@ def test_patient_service_success(client):
     # Opcional: Verifique se a categoria prevista está entre as categorias conhecidas
     assert json_data['predicted_category'] in ["0=Blood Donor", "1=Patient"]  # Ajuste conforme suas categorias
 
-def test_patient_service_missing_fields(client):
+def test_ia_service_missing_fields(client):
     """Teste para verificar a resposta quando campos estão faltando"""
-    # Envia um JSON com campos faltando
+    # Dados do paciente com campos laboratoriais faltando
     patient_data = {
-        "Age": 45,
-        "Sex": "f",
-        "ALB": 40.0,
-        # "ALP" está faltando
-        "ALT": 30.0,
-        "AST": 25.0,
-        "BIL": 10.0,
-        "CHE": 7.0,
-        "CHOL": 4.5,
-        "CREA": 90,
-        "GGT": 20.0,
-        "PROT": 70
+       "id": 402,
+       "name": "menine",
+       "birthdate": "1990-01-01T00:00:00.000+00:00",
+       "gender": "f",
+       "consultationDate": datetime.utcnow().isoformat() + "Z",
+       "laboratoryAnalyses": {
+          "albumin": 38.5,
+          # "alkalinePhosphatase" está faltando
+          "alanineTransaminase": 7.7,
+          "aspartateTransaminase": 22.1,
+          "bilirubin": 7.5,
+          "cholinesterase": 6.93,
+          "cholesterol": 3.23,
+          "creatinine": 106,
+          "gammaGlutamylTransferase": 12.1,
+          "totalProtein": 69
+       },
     }
     
     # Faz o POST com os dados do paciente
     response = client.post('/api/ia_service', json=patient_data)
     json_data = response.get_json()
 
-    # Verifica se retorna erro de campos faltando
+    # Verifica se retorna erro de campos laboratoriais faltando
     assert response.status_code == 400
     assert 'error' in json_data
-    assert json_data['error'] == "Campos faltando no JSON de entrada"
+    assert json_data['error'] == "Campos laboratoriais faltando no JSON de entrada"
 
-def test_patient_service_invalid_sex(client):
-    """Teste para verificar a resposta com valor inválido para 'Sex'"""
-    # Envia um JSON com valor inválido para 'Sex'
+def test_ia_service_invalid_gender(client):
+    """Teste para verificar a resposta com valor inválido para 'gender'"""
+    # Dados do paciente com 'gender' inválido
     patient_data = {
-        "Age": 40,
-        "Sex": "unknown",  # Valor inválido
-        "ALB": 40.0,
-        "ALP": 80.0,
-        "ALT": 30.0,
-        "AST": 25.0,
-        "BIL": 10.0,
-        "CHE": 7.0,
-        "CHOL": 4.5,
-        "CREA": 90,
-        "GGT": 20.0,
-        "PROT": 70
+       "id": 402,
+       "name": "menine",
+       "birthdate": "1990-01-01T00:00:00.000+00:00",
+       "gender": "unknown",  # Valor inválido
+       "consultationDate": datetime.utcnow().isoformat() + "Z",
+       "laboratoryAnalyses": {
+          "albumin": 38.5,
+          "alkalinePhosphatase": 52.5,
+          "alanineTransaminase": 7.7,
+          "aspartateTransaminase": 22.1,
+          "bilirubin": 7.5,
+          "cholinesterase": 6.93,
+          "cholesterol": 3.23,
+          "creatinine": 106,
+          "gammaGlutamylTransferase": 12.1,
+          "totalProtein": 69
+       },
     }
     
     # Faz o POST com os dados do paciente
     response = client.post('/api/ia_service', json=patient_data)
     json_data = response.get_json()
 
-    # Verifica se retorna erro devido ao valor inválido
-    assert response.status_code == 200  # Dependendo da implementação, pode ser 400
-    assert 'error' in json_data or 'predicted_category' in json_data
-    # Dependendo de como você tratou valores inválidos, ajuste as assertivas
+    # Verifica se retorna erro devido ao valor inválido de 'gender'
+    # Dependendo de como o aplicativo trata valores inválidos, o status code pode variar
+    assert response.status_code == 200  # Ajuste se necessário
+    assert 'predicted_category' in json_data
+    assert json_data['status'] == "success"
+    # Opcionalmente, pode verificar se o gênero padrão foi aplicado

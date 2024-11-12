@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import joblib
 import numpy as np
 import os
+from datetime import datetime
 
 # Inicializa a aplicação Flask
 app = Flask(__name__)
@@ -11,7 +12,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, 'models', 'modelo_rf.joblib')
 SCALER_PATH = os.path.join(BASE_DIR, 'models', 'scaler.joblib')
 LE_PATH = os.path.join(BASE_DIR, 'models', 'label_encoder.joblib')
-
 
 # Carrega o modelo e os objetos de pré-processamento
 try:
@@ -29,24 +29,25 @@ except FileNotFoundError as e:
 def hello_world():
     return "Hello, World!"
 
+# Função para calcular a idade a partir da data de nascimento e data de consulta
+def calculate_age(birthdate_str, consultation_date_str):
+    birthdate = datetime.fromisoformat(birthdate_str.replace("Z", "+00:00"))
+    consultation_date = datetime.fromisoformat(consultation_date_str.replace("Z", "+00:00"))
+    age = consultation_date.year - birthdate.year - ((consultation_date.month, consultation_date.day) < (birthdate.month, birthdate.day))
+    return age
+
+# Função para mapear o gênero para o formato esperado pelo modelo
+def map_gender(gender_str):
+    # Exemplo de mapeamento: ajuste conforme necessário
+    gender_map = {
+        "m": 0,
+        "f": 1,
+        # Adicione outros mapeamentos se necessário
+    }
+    return gender_map.get(gender_str.lower(), 0)  # Default para 0 se não encontrado
+
 # Função para processar dados do paciente
-def ia_processing_patient(data):
-    # Extrai os dados necessários
-    features = [
-        data.get('Age'),
-        0 if data.get('Sex') == 'm' else 1,  # Assume 'm' ou 'f'
-        data.get('ALB'),
-        data.get('ALP'),
-        data.get('ALT'),
-        data.get('AST'),
-        data.get('BIL'),
-        data.get('CHE'),
-        data.get('CHOL'),
-        data.get('CREA'),
-        data.get('GGT'),
-        data.get('PROT')
-    ]
-    
+def ia_processing_patient(features):
     # Converte para numpy array e escala
     features = np.array(features).reshape(1, -1)
     features_scaled = scaler.transform(features)
@@ -67,13 +68,59 @@ def ia_service():
         # Recebe o JSON do request
         data = request.get_json()
         
-        # Verifica se todos os campos necessários estão presentes
-        required_fields = ['Age', 'Sex', 'ALB', 'ALP', 'ALT', 'AST', 'BIL', 'CHE', 'CHOL', 'CREA', 'GGT', 'PROT']
-        if not all(field in data for field in required_fields):
-            return jsonify({'error': 'Campos faltando no JSON de entrada'}), 400
+        if not data:
+            return jsonify({'error': 'JSON vazio ou inválido'}), 400
+        
+        # Extrai datas para calcular a idade
+        birthdate = data.get('birthdate')
+        consultation_date = data.get('consultationDate')
+        if not birthdate or not consultation_date:
+            return jsonify({'error': 'Campos "birthdate" ou "consultationDate" faltando'}), 400
+        
+        # Calcula a idade
+        age = calculate_age(birthdate, consultation_date)
+        
+        # Mapeia o gênero
+        gender = data.get('gender')
+        sex = map_gender(gender)
+        
+        # Extrai os valores das análises laboratoriais
+        laboratory = data.get('laboratoryAnalyses', {})
+        required_lab_fields = {
+            'ALB': laboratory.get('albumin'),
+            'ALP': laboratory.get('alkalinePhosphatase'),
+            'ALT': laboratory.get('alanineTransaminase'),
+            'AST': laboratory.get('aspartateTransaminase'),
+            'BIL': laboratory.get('bilirubin'),
+            'CHE': laboratory.get('cholinesterase'),
+            'CHOL': laboratory.get('cholesterol'),
+            'CREA': laboratory.get('creatinine'),
+            'GGT': laboratory.get('gammaGlutamylTransferase'),
+            'PROT': laboratory.get('totalProtein')
+        }
+        
+        # Verifica se todos os campos laboratoriais necessários estão presentes
+        if not all(value is not None for value in required_lab_fields.values()):
+            return jsonify({'error': 'Campos laboratoriais faltando no JSON de entrada'}), 400
+        
+        # Prepara as features para o modelo
+        features = [
+            age,
+            sex,
+            required_lab_fields['ALB'],
+            required_lab_fields['ALP'],
+            required_lab_fields['ALT'],
+            required_lab_fields['AST'],
+            required_lab_fields['BIL'],
+            required_lab_fields['CHE'],
+            required_lab_fields['CHOL'],
+            required_lab_fields['CREA'],
+            required_lab_fields['GGT'],
+            required_lab_fields['PROT']
+        ]
         
         # Processa os dados e faz a previsão
-        result = ia_processing_patient(data)
+        result = ia_processing_patient(features)
         
         return jsonify(result), 200
 
