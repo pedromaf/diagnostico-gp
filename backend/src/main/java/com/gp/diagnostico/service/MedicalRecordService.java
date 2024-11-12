@@ -1,16 +1,16 @@
 package com.gp.diagnostico.service;
 
-import com.gp.diagnostico.domain.dto.LaboratoryAnalysesDTO;
-import com.gp.diagnostico.domain.dto.MedicalRecordDTO;
-import com.gp.diagnostico.domain.dto.PreviousHistoryDTO;
+import com.gp.diagnostico.domain.dto.*;
 import com.gp.diagnostico.domain.entity.LaboratoryAnalyses;
 import com.gp.diagnostico.domain.entity.MedicalRecord;
 import com.gp.diagnostico.domain.entity.PreviousHistory;
+import com.gp.diagnostico.domain.entity.Symptomatology;
 import com.gp.diagnostico.util.mapper.MedicalRecordMapper;
 import com.gp.diagnostico.util.mapper.PreviousHistoryMapper;
 import com.gp.diagnostico.util.mapper.LaboratoryAnalysesMapper;
 import com.gp.diagnostico.repository.MedicalRecordRepository;
 import com.gp.diagnostico.service.exception.MedicalRecordNotFoundException;
+import com.gp.diagnostico.util.mapper.SymptomatologyMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -22,15 +22,17 @@ public class MedicalRecordService {
     private final MedicalRecordMapper medicalRecordMapper;
     private final PreviousHistoryMapper previousHistoryMapper;
     private final LaboratoryAnalysesMapper laboratoryAnalysesMapper;
+    private final SymptomatologyMapper symptomatologyMapper;
 
     public MedicalRecordService(MedicalRecordRepository medicalRecordRepository,
                                 MedicalRecordMapper medicalRecordMapper,
                                 PreviousHistoryMapper previousHistoryMapper,
-                                LaboratoryAnalysesMapper laboratoryAnalysesMapper) {
+                                LaboratoryAnalysesMapper laboratoryAnalysesMapper, SymptomatologyMapper symptomatologyMapper) {
         this.medicalRecordRepository = medicalRecordRepository;
         this.medicalRecordMapper = medicalRecordMapper;
         this.previousHistoryMapper = previousHistoryMapper;
         this.laboratoryAnalysesMapper = laboratoryAnalysesMapper;
+        this.symptomatologyMapper = symptomatologyMapper;
     }
 
     public Iterable<MedicalRecord> findAll() {
@@ -80,5 +82,32 @@ public class MedicalRecordService {
     public void deleteMedicalRecord(Long id) {
         MedicalRecord medicalRecord = findById(id);
         medicalRecordRepository.delete(medicalRecord);
+    }
+
+    public SimplifiedMedicalRecordDTO findByIdSimplified(Long id) {
+        MedicalRecord medicalRecord = findById(id);
+        SimplifiedMedicalRecordDTO dto = new SimplifiedMedicalRecordDTO();
+
+        dto.setId(medicalRecord.getId());
+        dto.setName(medicalRecord.getName());
+        dto.setBirthdate(medicalRecord.getBirthdate());
+        dto.setGender(medicalRecord.getGender());
+        dto.setAddress(medicalRecord.getAddress());
+        dto.setEmail(medicalRecord.getEmail());
+        dto.setPhoneNumber(medicalRecord.getPhoneNumber());
+        dto.setConsultationDate(medicalRecord.getConsultationDate());
+
+        return dto;
+    }
+
+    public MedicalRecord updateSymptomatology(Long id, SymptomatologyDTO symptomatologyDTO) {
+        MedicalRecord medicalRecord = findById(id);
+
+        Symptomatology symptomatology = symptomatologyMapper.toEntity(symptomatologyDTO);
+        symptomatology.setMedicalRecord(medicalRecord);
+
+        medicalRecord.setSymptomatology(symptomatology);
+
+        return medicalRecordRepository.save(medicalRecord);
     }
 }

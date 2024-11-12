@@ -1,8 +1,6 @@
 package com.gp.diagnostico.controller;
 
-import com.gp.diagnostico.domain.dto.LaboratoryAnalysesDTO;
-import com.gp.diagnostico.domain.dto.MedicalRecordDTO;
-import com.gp.diagnostico.domain.dto.PreviousHistoryDTO;
+import com.gp.diagnostico.domain.dto.*;
 import com.gp.diagnostico.domain.entity.MedicalRecord;
 import com.gp.diagnostico.service.MedicalRecordService;
 import org.springframework.http.HttpStatus;
@@ -29,6 +27,11 @@ public class MedicalRecordController {
         return ResponseEntity.ok(medicalRecordService.findById(id));
     }
 
+    @GetMapping("/{id}/simplified")
+    public ResponseEntity<SimplifiedMedicalRecordDTO> findByIdSimplified(@PathVariable Long id) {
+        return ResponseEntity.ok(medicalRecordService.findByIdSimplified(id));
+    }
+
     @PostMapping("/")
     public ResponseEntity<MedicalRecord> createMedicalRecord(@RequestBody MedicalRecordDTO medicalRecordDto) {
         MedicalRecord createdMedicalRecord = medicalRecordService.createMedicalRecord(medicalRecordDto);
@@ -44,6 +47,13 @@ public class MedicalRecordController {
     @PutMapping("/{id}/laboratoryAnalyses")
     public ResponseEntity<MedicalRecord> updateLaboratoryAnalyses(@PathVariable Long id, @RequestBody LaboratoryAnalysesDTO laboratoryAnalysesDto) {
         MedicalRecord updatedMedicalRecord = medicalRecordService.updateLaboratoryAnalyses(id, laboratoryAnalysesDto);
+
+        return ResponseEntity.ok(updatedMedicalRecord);
+    }
+
+    @PutMapping("/{id}/symptomatology")
+    public ResponseEntity<MedicalRecord> updateSymptomatology(@PathVariable Long id, @RequestBody SymptomatologyDTO symptomatologyDTO) {
+        MedicalRecord updatedMedicalRecord = medicalRecordService.updateSymptomatology(id, symptomatologyDTO);
 
         return ResponseEntity.ok(updatedMedicalRecord);
     }

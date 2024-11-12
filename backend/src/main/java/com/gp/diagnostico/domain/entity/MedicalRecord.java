@@ -45,4 +45,8 @@ public class MedicalRecord {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "laboratory_analyses_id")
     private LaboratoryAnalyses laboratoryAnalyses;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "symptomatology_id")
+    private Symptomatology symptomatology;
 }
