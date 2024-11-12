@@ -27,6 +27,11 @@ public class MedicalRecordController {
         return ResponseEntity.ok(medicalRecordService.findById(id));
     }
 
+    @GetMapping("/{id}/diagnosis")
+    public ResponseEntity<DiagnosisDTO> getDiagnosis(@PathVariable Long id) {
+        return ResponseEntity.ok(medicalRecordService.sendMedicalDataToIA(id));
+    }
+
     @GetMapping("/{id}/simplified")
     public ResponseEntity<SimplifiedMedicalRecordDTO> findByIdSimplified(@PathVariable Long id) {
         return ResponseEntity.ok(medicalRecordService.findByIdSimplified(id));

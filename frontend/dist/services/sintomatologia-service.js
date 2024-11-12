@@ -142,7 +142,6 @@ function generateDiagnosis(event) {
             try {
                 const endpoint = AppConstants.SYMPTOMATOLOGY_ENDPOINT.replace("{medicalRecordId}", medicalRecordId);
                 const response = yield apiService.put(endpoint, symptomatology);
-                console.log(response.data);
                 if (response.error) {
                     alert(response.error);
                 }

@@ -160,7 +160,7 @@ async function generateDiagnosis(event: Event) {
             const endpoint = AppConstants.SYMPTOMATOLOGY_ENDPOINT.replace("{medicalRecordId}", medicalRecordId);
             const response = await apiService.put<MedicalRecord>(endpoint, symptomatology);
 
-            console.log(response.data);
+        
 
             if (response.error) {
                 alert(response.error);
